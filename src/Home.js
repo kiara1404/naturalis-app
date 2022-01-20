@@ -49,7 +49,8 @@ export default function Home() {
 
     const [currentQuestion, setCurrentQuestion] = useState(0);
 
-    const [show, setShow] = useState(false)
+    const [show, setShow] = useState(false);
+    const randomQuestion = questions[Math.floor(Math.random() * questions.length)]
 
     const handleAnswerButtonClick = (isCorrect) => {
         if (isCorrect) {
@@ -63,14 +64,7 @@ export default function Home() {
 
     return (
         <div className='app'>
-            <header className="header">
 
-                <ul>
-                    <li><a>Favorieten</a></li>
-                    <li><a>Opslaan</a></li>
-                </ul>
-
-            </header>
             <div className="wrapper">
 
                 <>
@@ -82,7 +76,7 @@ export default function Home() {
 
                         {questions[currentQuestion].answerOptions.map((answerOption) => (
                             <>
-                                <div class="answers">
+                                <div className="answers">
                                     <button onClick={() => handleAnswerButtonClick(answerOption.isCorrect)}><img src="placeholder.jpeg"></img></button>
                                     <h3>{answerOption.answerText}</h3>
                                 </div>
