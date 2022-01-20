@@ -8,7 +8,7 @@
 }
 
 header{
-    background-color: #b9ddff;
+    background-color: #E2EEFF;
     padding: 30px;
     margin: 50px 150px 0;
 
@@ -81,7 +81,7 @@ text-align: center;
 }
 
 button:hover {
-  background-color: #7e3ea3;
+  opacity: 0.5;
 }
 
 button:focus {
@@ -121,3 +121,13 @@ header ul li:nth-child(1) a{
     opacity: 0.8;
 }
 
+.btn-verder {
+  width: 10%;
+  height: 40px;
+  margin: 0 100px;
+  border: none;
+  background-color: #6ED57F;
+  float: right;
+  font-size: 1em;
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.397);
+}
