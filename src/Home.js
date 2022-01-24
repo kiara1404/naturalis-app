@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Detail from './Detail';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
@@ -61,6 +61,19 @@ export default function Home() {
 
         }
     }
+    const [object, setObject] = useState(null)
+
+    useEffect(() => {
+        fetch('data_2.json')
+            .then(res => {
+                return res.json()
+            })
+            .then(data => {
+                console.log(data)
+                setObject(data[0])
+            })
+    }, [])
+
 
     return (
         <div className='app'>
@@ -69,6 +82,8 @@ export default function Home() {
 
                 <>
                     <div className='question-section'>
+                        {object && <h1>{object.kingdom}</h1>}
+
 
                         <div className='question-text'>{questions[currentQuestion].questionText}</div>
                     </div>
@@ -91,8 +106,9 @@ export default function Home() {
                         show ? <button className="btn-verder">Verder</button> : null
                     }
                 </Link>
-            </div>
 
+
+            </div>
         </div>
 
 

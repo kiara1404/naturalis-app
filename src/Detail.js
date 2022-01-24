@@ -1,12 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Home  from './Home'
+import App from './App'
 
 // const handleNextQuestion = () => {
 // const nextQuestion = currentQuestion + 1;
 // setCurrentQuestion(nextQuestion)
 // }
+
+
 export default function Detail() {
+    const [object, setObject] = useState(null)
+
+    useEffect(() => {
+        fetch('data_2.json')
+            .then(res => {
+                return res.json()
+            })
+            .then(data => {
+                console.log(data)
+                setObject(data[0])
+            })
+    }, [])
 
     return (
         <div className='Detail'>
@@ -25,6 +40,7 @@ export default function Detail() {
                     <div className='info-block'>
                         <h1> Aziatische Olifant</h1>
                         <h4>Elephas maximus</h4>
+                        {object && <h1>{object.kingdom}</h1>}
                         <div class='data'>
                             <p className='description'>De draagtijd van de Aziatische
                             olifant Is 660 dagen. Dit vertaalt
