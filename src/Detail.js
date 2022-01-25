@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, useNavigate, useParams } from 'react-router-dom';
 import  questions from './Home'
 import App from './App'
 import { shuffle } from 'd3';
@@ -7,12 +7,9 @@ import { shuffle } from 'd3';
 
 
 export default function Detail() {
-
+    const { id } = useParams()
     const [object, setObject] = useState(null);
 
-    const test = React.useCallback((event) => {
-        alert('btn clicked')
-}, []);
 
 // const handleNextQuestion = () => {
 //     const nextQuestion = currentQuestion + 1;

@@ -8,17 +8,17 @@ import * as d3 from 'd3';
 export default function App() {
   const [person, setPerson] = useState(null)
 
-useEffect(() => {
-  async function fetchData() {
-    const endpoint = 'data_2.json';
-    const response = await fetch(endpoint);
-    const data = await response.json()
-    const item = data
-    setPerson(item)
-    console.log(data)
-  }
- fetchData();
-},[])
+  useEffect(() => {
+    async function fetchData() {
+      const endpoint = 'data_2.json';
+      const response = await fetch(endpoint);
+      const data = await response.json()
+      const item = data
+      setPerson(item)
+      console.log(data)
+    }
+    fetchData();
+  }, [])
 
 
 
@@ -27,13 +27,13 @@ useEffect(() => {
       <div className='app'>
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/detail' element={<Detail />} />
+          <Route path='/detail:id' element={<Detail />} />
         </Routes>
         <div>{person && person.kingdom}</div>
       </div>
     </Router>
 
-    
+
 
   );
 }

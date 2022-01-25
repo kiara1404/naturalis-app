@@ -7,12 +7,11 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 export default function Home() {
 
 
-
     const questions = [
         {
             questionText: 'Welke van de onderstaande dieren heeft de langste draagtijd?',
             answerOptions: [
-                { answerText: 'Aziatische olifant', scientificName: 'Elephas maximus', value: '660 dagen', isCorrect: true },
+                { answerText: 'Aziatische olifant', scientificName: 'Elephas maximus', id:'0', value: '660 dagen', isCorrect: true },
                 { answerText: 'Lama', value: '358 dagen', isCorrect: false },
                 { answerText: 'Chimpansee', value: '225 dagen', isCorrect: false }
             ],
@@ -22,7 +21,7 @@ export default function Home() {
             answerOptions: [
                 { answerText: 'witte pelikaan', value: '271,5 mm', isCorrect: false },
                 { answerText: 'Zuidelijke gele vleermuis', value: '345 mm', isCorrect: false },
-                { answerText: 'Ringsnavelmeeuw', value: '1150 mm', scientificName: 'Larus delawarensis', isCorrect: true },
+                { answerText: 'Ringsnavelmeeuw', value: '1150 mm', scientificName: 'Larus delawarensis', id: '1', isCorrect: true },
             ],
         },
         {
@@ -30,21 +29,21 @@ export default function Home() {
             answerOptions: [
                 { answerText: 'Kaspische rob', value: '11 maanden', isCorrect: false },
                 { answerText: 'Antilopegrondeekhoorn', value: '32.5 dagen', isCorrect: false },
-                { answerText: 'Bosspitsmuis', scientificName: 'Sorex araneus', value: '20 dagen', isCorrect: true }
+                { answerText: 'Bosspitsmuis', scientificName: 'Sorex araneus', value: '20 dagen', id: '2', isCorrect: true }
             ],
         },
         {
             questionText: 'Welk van de onderstaande dieren heeft de meeste jongen per zwangerschap?',
             answerOptions: [
                 { answerText: '	karetschildpad', value: '128', isCorrect: false },
-                { answerText: 'Gewone octopus', scientificName: 'Octopus vulgaris', value: '80000', isCorrect: true },
+                { answerText: 'Gewone octopus', scientificName: 'Octopus vulgaris', value: '80000', id: '3', isCorrect: true },
                 { answerText: 'Kortsnuitzeepaardje', value: '865', isCorrect: false },
             ],
         },
         {
             questionText: 'Welk van de onderstaande organismen heeft de langst gemeten levensduur?',
             answerOptions: [
-                { answerText: 'Zomereik', scientificName: 'Quercus robur', value: '930 jaar', isCorrect: true },
+                { answerText: 'Zomereik', scientificName: 'Quercus robur', value: '930 jaar', id: '4', isCorrect: true },
                 { answerText: '	Witte spar', value: '668 jaar', isCorrect: false },
                 { answerText: 'Moerasden', value: '458 jaar', isCorrect: false }
             ],
@@ -75,7 +74,7 @@ export default function Home() {
             })
             .then(data => {
                 console.log(data)
-                setObject(data[0])
+                setObject(data)
             })
     }, [])
 
@@ -89,7 +88,7 @@ export default function Home() {
 
                 <>
                     <div className='question-section'>
-                        {/* {object && <h1>{object.kingdom}</h1>} */}
+                        
 
 
                         <div className='question-text'>{questions[currentQuestion].questionText}</div>
@@ -111,7 +110,7 @@ export default function Home() {
                                     {show ? <p className={`answer-p ${
                                         clicked && answerOption.isCorrect ? 'correct-p' : null}`}>  {answerOption.value} </p> : null}
 
-
+                                    
                                 </div>
 
                             </>
@@ -119,7 +118,8 @@ export default function Home() {
 
                     </div>
                 </>
-                <Link to='/detail'>
+                
+                <Link to={`/detail/${questions.id}`}>
                     {
                         show ? <button className="btn-verder">Verder</button> : null
                     }
