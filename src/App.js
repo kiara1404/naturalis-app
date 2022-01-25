@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Detail from './Detail';
-import Home from './Home'
+import Detail from './components/Detail';
+import Home from './components/Home'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import * as d3 from 'd3';
 
@@ -27,7 +27,7 @@ export default function App() {
       <div className='app'>
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/detail:id' element={<Detail />} />
+          <Route path='/detail' element={<Detail />} />
         </Routes>
         <div>{person && person.kingdom}</div>
       </div>
