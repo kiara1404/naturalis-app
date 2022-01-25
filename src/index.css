@@ -211,7 +211,7 @@ button {
   width: 100%;
   border-radius: 40px;
   overflow: hidden;
-  border: 1px solid #000000;
+  border: none;
   cursor: pointer;
   
 }
@@ -227,11 +227,18 @@ text-align: center;
 }
 
 .correct {
-  background-color: #34be34;
+  border: 5px solid #34be34;
+
+  ;
+}
+
+.correct-h3, .correct-p {
+  color: #34be34;
 }
 
 .incorrect {
-  background-color: #be3333;
+  border: 3px solid #be3333;
+  
 }
 
 button:hover {

@@ -3,46 +3,50 @@ import Detail from './Detail';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 
+
 export default function Home() {
+
+
+
     const questions = [
         {
-            questionText: 'Test vraag 1',
+            questionText: 'Welke van de onderstaande dieren heeft de langste draagtijd?',
             answerOptions: [
-                { answerText: 'Antwoord 1', photo: '/public/placeholder.jpeg', isCorrect: false },
-                { answerText: 'Antwoord 2', isCorrect: true },
-                { answerText: 'Antwoord 3', isCorrect: false }
+                { answerText: 'Aziatische olifant', scientificName: 'Elephas maximus', value: '660 dagen', isCorrect: true },
+                { answerText: 'Lama', value: '358 dagen', isCorrect: false },
+                { answerText: 'Chimpansee', value: '225 dagen', isCorrect: false }
             ],
         },
         {
-            questionText: 'Test vraag 2',
+            questionText: 'Welke van de onderstaande vogels heeft de grootste spanwijdte?',
             answerOptions: [
-                { answerText: 'Antwoord 1', isCorrect: false },
-                { answerText: 'Antwoord 2', isCorrect: false },
-                { answerText: 'Antwoord 3', isCorrect: false },
+                { answerText: 'witte pelikaan', value: '271,5 mm', isCorrect: false },
+                { answerText: 'Zuidelijke gele vleermuis', value: '345 mm', isCorrect: false },
+                { answerText: 'Ringsnavelmeeuw', value: '1150 mm', scientificName: 'Larus delawarensis', isCorrect: true },
             ],
         },
         {
-            questionText: 'Test vraag 3',
+            questionText: 'Welke van de onderstaande dieren heeft de kortste draagtijd?',
             answerOptions: [
-                { answerText: 'Antwoord 1', isCorrect: false },
-                { answerText: 'Antwoord 2', isCorrect: false },
-                { answerText: 'Antwoord 3', isCorrect: true }
+                { answerText: 'Kaspische rob', value: '11 maanden', isCorrect: false },
+                { answerText: 'Antilopegrondeekhoorn', value: '32.5 dagen', isCorrect: false },
+                { answerText: 'Bosspitsmuis', scientificName: 'Sorex araneus', value: '20 dagen', isCorrect: true }
             ],
         },
         {
-            questionText: 'Test vraag 4',
+            questionText: 'Welk van de onderstaande dieren heeft de meeste jongen per zwangerschap?',
             answerOptions: [
-                { answerText: 'Antwoord 1', isCorrect: false },
-                { answerText: 'Antwoord 2', isCorrect: true },
-                { answerText: 'Antwoord 3', isCorrect: false },
+                { answerText: '	karetschildpad', value: '128', isCorrect: false },
+                { answerText: 'Gewone octopus', scientificName: 'Octopus vulgaris', value: '80000', isCorrect: true },
+                { answerText: 'Kortsnuitzeepaardje', value: '865', isCorrect: false },
             ],
         },
         {
-            questionText: 'Test vraag 5',
+            questionText: 'Welk van de onderstaande organismen heeft de langst gemeten levensduur?',
             answerOptions: [
-                { answerText: 'Antwoord 1', isCorrect: true },
-                { answerText: 'Antwoord 2', isCorrect: false },
-                { answerText: 'Antwoord 4', isCorrect: false }
+                { answerText: 'Zomereik', scientificName: 'Quercus robur', value: '930 jaar', isCorrect: true },
+                { answerText: '	Witte spar', value: '668 jaar', isCorrect: false },
+                { answerText: 'Moerasden', value: '458 jaar', isCorrect: false }
             ],
         },
     ]
@@ -50,18 +54,19 @@ export default function Home() {
     const [currentQuestion, setCurrentQuestion] = useState(0);
 
     const [show, setShow] = useState(false);
-    const randomQuestion = questions[Math.floor(Math.random() * questions.length)]
+    const [clicked, setClicked] = useState(false)
 
-    const handleAnswerButtonClick = (isCorrect) => {
-        if (isCorrect) {
-            alert('dit is het goede antwoord')
-            setShow(true)
-        } else {
-            alert('fout antwoord')
+    const [object, setObject] = useState(null);
 
-        }
+
+    const handleCorrectAnswer = (isCorrect) => {
+
+        setShow(true)
+
+        setClicked(true)
+
+
     }
-    const [object, setObject] = useState(null)
 
     useEffect(() => {
         fetch('data_2.json')
@@ -75,6 +80,8 @@ export default function Home() {
     }, [])
 
 
+
+
     return (
         <div className='app'>
 
@@ -82,7 +89,7 @@ export default function Home() {
 
                 <>
                     <div className='question-section'>
-                        {object && <h1>{object.kingdom}</h1>}
+                        {/* {object && <h1>{object.kingdom}</h1>} */}
 
 
                         <div className='question-text'>{questions[currentQuestion].questionText}</div>
@@ -92,8 +99,19 @@ export default function Home() {
                         {questions[currentQuestion].answerOptions.map((answerOption) => (
                             <>
                                 <div className="answers">
-                                    <button onClick={() => handleAnswerButtonClick(answerOption.isCorrect)}><img src="placeholder.jpeg"></img></button>
-                                    <h3>{answerOption.answerText}</h3>
+
+                                    <button className={`answer-button ${
+                                        clicked && answerOption.isCorrect ? 'correct' : null
+                                        }`}
+                                        onClick={() => handleCorrectAnswer(answerOption.isCorrect)}><img src="placeholder.jpeg"></img></button>
+                                    <h3 className={`answer-h3 ${
+                                        clicked && answerOption.isCorrect ? 'correct-h3' : null
+                                        }`}>{answerOption.answerText}</h3>
+
+                                    {show ? <p className={`answer-p ${
+                                        clicked && answerOption.isCorrect ? 'correct-p' : null}`}>  {answerOption.value} </p> : null}
+
+
                                 </div>
 
                             </>
@@ -113,4 +131,4 @@ export default function Home() {
 
 
     );
-}
+} 
