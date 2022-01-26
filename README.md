@@ -13,7 +13,7 @@ Wij hebben gekozen om te beginnen met een vragen in de vorm van een quiz. Op bas
 
 ![screen recording as GIF](https://github.com/kiara1404/naturalis-app/blob/master/screen-gif.gif?raw=true)
 
-## Installation ⚙️
+## Installation
 > Belangrijk om te weten, dit project is gemaakt met React.js
 
 #### Clone deze repository
@@ -29,8 +29,8 @@ Wij hebben gekozen om te beginnen met een vragen in de vorm van een quiz. Op bas
 MIT License
 
 ## Bronnen
-[Shuffle array with useEffect()](https://stackoverflow.com/questions/61263368/how-to-shuffle-an-array-once-in-functional-react-component)
-[Select random value array](https://stackoverflow.com/questions/4550505/getting-a-random-value-from-a-javascript-array)
-[React State Management from Dev Ed](https://www.youtube.com/watch?v=35lXWvCuM8o)
-[Make quiz in React from Chris Blakely](https://www.youtube.com/watch?v=Lya-qYiDqIA&t=672s)
-[Github repo quiz-app from Chris Blakely](https://github.com/chrisblakely01/quiz-app)
+[Shuffle array with useEffect()](https://stackoverflow.com/questions/61263368/how-to-shuffle-an-array-once-in-functional-react-component)     
+[Select random value array](https://stackoverflow.com/questions/4550505/getting-a-random-value-from-a-javascript-array)     
+[React State Management from Dev Ed](https://www.youtube.com/watch?v=35lXWvCuM8o)     
+[Make quiz in React from Chris Blakely](https://www.youtube.com/watch?v=Lya-qYiDqIA&t=672s)     
+[Github repo quiz-app from Chris Blakely](https://github.com/chrisblakely01/quiz-app)     
