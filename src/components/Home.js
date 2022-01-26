@@ -5,6 +5,15 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 export default function Home() {
 
+    // random volgende vraag > werkt nog niet op de detailpagina > moet ook nog bij einde iets toevoegen + score
+       const handleNextQuestion = () => {
+           setClicked(false)
+           setShow(false)
+           const nextQuestion = Math.floor(Math.random() * questions.length);
+        if (nextQuestion < questions.length) {
+            setCurrentQuestion(nextQuestion)
+        }
+    }
 
     const questions = [
         {
@@ -58,10 +67,13 @@ export default function Home() {
 
 
     const handleCorrectAnswer = (isCorrect) => {
+       {
+            setShow(true)
+            setClicked(true)
+    
+        }
 
-        setShow(true)
-
-        setClicked(true)
+        
 
 
     }
@@ -130,11 +142,11 @@ export default function Home() {
                     </div>
                 </>
 
-                <Link to='/detail'>
+                {/* <Link to='/detail'> */}
                     {
-                        show ? <button className="btn-verder">Verder</button> : null
+                    show ? <button className="btn-verder" onClick={handleNextQuestion}>Verder</button> : null
                     }
-                </Link>
+                {/* </Link> */}
 
 
             </div>

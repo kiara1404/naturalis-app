@@ -1,23 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useParams } from 'react-router-dom';
-
-
+import handleNextQuestion from './Home'
 
 
 
 export default function Detail(data) {
-    const { id } = useParams()
+    // const [currentQuestion, setCurrentQuestion] = useState(1);
     const [object, setObject] = useState(null);
     const url = 'https://api.gbif.org/v1/occurrence/'
 
-
-
-    // const handleNextQuestion = () => {
-    //     const nextQuestion = currentQuestion + 1;
-    //     if (nextQuestion < questions.length) {
-    //         setCurrentQuestion(nextQuestion)
-    //     }
-    // }
+    
 
     useEffect(() => {
         const url = 'https://api.gbif.org/v1/occurrence/'
@@ -124,7 +116,7 @@ export default function Detail(data) {
                     </div>
 
                 </div>
-                <Link to='/'>
+                <Link to='/' onClick={() =>  handleNextQuestion}>
                     <button className='new-question'>Nieuwe vraag</button>
                 </Link>
                 <div className='sidebar'>
