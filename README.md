@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+# Information Design Project 📚
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Repository voor het project van Information Design. Dit is een project in het derde jaar van de studie Communicatie & Multimedia design aan de Hogeschool van Amsterdam. 
 
-## Available Scripts
+## Q42 Project Naturalis 🌱
 
-In the project directory, you can run:
+Voor dit project moesten wij uit verschillende cases van opdrachtgevers kiezen. Onze opdrachtgever is Q42 voor Naturalis. De opdracht was om een alternatieve manier te vinden om objecten vanuit de GBIF datasets van Naturalis & Natuurhistorisch museum Rotterdam weer te kunnen geven. 
+Zij hebben al een web applicatie gebouwd op basis van geo data. Het probleem hiermee echter was dat lang niet alle objecten geodata bevat. Aan ons dus de taak om een alternatieve manier te vinden! 
 
-### `npm start`
+## Concept 📋
+Ons concept is gebaseerd op verschillende property values van wikidata.org . De GBIF data kon worden aangevuld met de data van wikidata. 
+Wij hebben gekozen om te beginnen met een vragen in de vorm van een quiz. Op basis van de antwoorden van de quiz kom je meer te weten over verschillende objecten. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![screen recording as GIF](https://github.com/kiara1404/naturalis-app/blob/master/screen-gif.gif?raw=true)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Installation ⚙️
+> Belangrijk om te weten, dit project is gemaakt met React.js
 
-### `npm test`
+#### Clone deze repository
+`git clone https://github.com/kiara1404/naturalis-app`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Installeer packages
+`npm install`
 
-### `npm run build`
+#### Run de applicatie
+`npm start`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## License
+MIT License
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Bronnen
+[Shuffle array with useEffect()](https://stackoverflow.com/questions/61263368/how-to-shuffle-an-array-once-in-functional-react-component)
+[Select random value array](https://stackoverflow.com/questions/4550505/getting-a-random-value-from-a-javascript-array)
+[React State Management from Dev Ed](https://www.youtube.com/watch?v=35lXWvCuM8o)
+[Make quiz in React from Chris Blakely](https://www.youtube.com/watch?v=Lya-qYiDqIA&t=672s)
+[Github repo quiz-app from Chris Blakely](https://github.com/chrisblakely01/quiz-app)
