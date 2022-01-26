@@ -3,7 +3,7 @@ import Detail from './components/Detail';
 import Home from './components/Home'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { QuestionProvider } from './components/QuestionContext';
-// import { QuestionProvider } from './components/QuestionContext';
+import LandingsPage from './components/LandingsPage'
 
 
 export default function App() {
@@ -26,7 +26,8 @@ export default function App() {
         <div className='app'>
 
           <Routes>
-            <Route path='/' element={<Home />} />
+            <Route path='/' element={<LandingsPage />} />
+            <Route path='/home' element={<Home />} />
             <Route path='/detail' element={<Detail />} />
           </Routes>
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, createContext, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import questions from './Home';
-import {QuestionContext} from './../components/QuestionContext';
+import { QuestionContext } from './../components/QuestionContext';
 
 
 
@@ -140,7 +140,7 @@ export default function Detail(data) {
                     </div>
 
                 </div>
-                <Link to='/'>
+                <Link to='/home'>
                     <button onClick={handleNextQuestion} className='new-question'>Nieuwe vraag</button>
                 </Link>
                 <div className='sidebar'>

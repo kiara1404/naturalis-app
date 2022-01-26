@@ -6,6 +6,61 @@
     
     
 }
+
+/* -- BEGIN LANDINGSPAGE -- */
+
+.lp-svg {
+  position: absolute;
+  z-index: -999;
+height: 140vh;
+width: 120vw;
+top: -100px;
+left: -20px;
+
+}
+.lp-wrapper {
+  height: 110vh;
+  width: 100vw;
+    position: relative;
+  overflow: hidden;
+
+}
+.LandingsPage{
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+} 
+.LandingsPage button{
+  font-size: 5em;
+  width: 800px;
+  height: 300px;
+  padding: 50px;
+  color: #fff;
+  background-color: transparent;
+  position: absolute;
+  z-index: 111;
+  bottom: -100px;
+  left: 0px;
+
+}
+
+.lp-intro{
+  color: #000;
+    z-index: 1111;
+  position: absolute;
+  top: 150px;
+  left: 350px;
+} 
+
+.lp-intro h1{
+  color: #56065A;
+  font-size: 6em;
+}
+
+.lp-intro p {
+  font-size: 2em;
+    color: #56065A;
+}
 /* -- BEGIN DETAIL PAGINA -- */
 
 
@@ -222,7 +277,7 @@ margin-bottom: 0;
 
 
 }
-..answer-button img {
+.answer-button img {
   width: 300px;
   margin-bottom: 0;
 
@@ -230,7 +285,6 @@ margin-bottom: 0;
 
 .answer-button {
   border: 3px solid #fff;
-  max-height: 200px;
   overflow: hidden;
 }
 
