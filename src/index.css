@@ -206,14 +206,32 @@ button {
   
 }
 
+.answers-img {
+    width: 250px;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
 
+}
 .answers {
 text-align: center;
+margin-right: 20px;
+overflow: hidden;
+margin-bottom: 0;
+
 
 
 }
+..answer-button img {
+  width: 300px;
+  margin-bottom: 0;
+
+}
+
 .answer-button {
   border: 3px solid #fff;
+  max-height: 200px;
+  overflow: hidden;
 }
 
 .answers h3 {

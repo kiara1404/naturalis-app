@@ -13,14 +13,24 @@ export default function Detail(data) {
     const url = 'https://api.gbif.org/v1/occurrence/';
 
     // random volgende vraag > werkt nog niet op de detailpagina > moet ook nog bij einde iets toevoegen + score
+    // const handleNextQuestion = () => {
+    //     // setClicked(false)
+    //     // setShow(false)
+    //     const nextQuestion = currentQuestion * questions.length;
+    //     if (nextQuestion < questions.length) {
+    //         setCurrentQuestion(nextQuestion)
+    //     }
+    // }
+
     const handleNextQuestion = () => {
         // setClicked(false)
         // setShow(false)
-        const nextQuestion = Math.floor(Math.random() * questions.length);
+        const nextQuestion = currentQuestion + 1;
         if (nextQuestion < questions.length) {
             setCurrentQuestion(nextQuestion)
         }
     }
+
 
 
 
@@ -130,8 +140,8 @@ export default function Detail(data) {
                     </div>
 
                 </div>
-                <Link to='/' onClick={handleNextQuestion}>
-                    <button className='new-question'>Nieuwe vraag</button>
+                <Link to='/'>
+                    <button onClick={handleNextQuestion} className='new-question'>Nieuwe vraag</button>
                 </Link>
                 <div className='sidebar'>
                     <h4>Uit dezelfde orde</h4>

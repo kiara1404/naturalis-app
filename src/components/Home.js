@@ -6,14 +6,13 @@ import { QuestionContext } from './../components/QuestionContext';
 
 export default function Home() {
 
-    const handleNextQuestion = () => {
-        setClicked(false)
-        setShow(false)
+
+    useEffect(() => {
         const nextQuestion = Math.floor(Math.random() * questions.length);
         if (nextQuestion < questions.length) {
             setCurrentQuestion(nextQuestion)
         }
-    }
+    }, [])
 
 
     const [currentQuestion, setCurrentQuestion] = useContext(QuestionContext)
@@ -21,41 +20,41 @@ export default function Home() {
         {
             questionText: 'Welke van de onderstaande dieren heeft de langste draagtijd?',
             answerOptions: [
-                { answerText: 'Aziatische olifant', scientificName: 'Elephas maximus', id: '0', value: '660 dagen', isCorrect: true },
-                { answerText: 'Lama', value: '358 dagen', isCorrect: false },
-                { answerText: 'Chimpansee', value: '225 dagen', isCorrect: false }
+                { answerText: 'Aziatische olifant', photo: 'Elephas-maximus.jpeg', scientificName: 'Elephas maximus', id: '0', value: '660 dagen', isCorrect: true },
+                { answerText: 'Lama', value: '358 dagen', photo: '220px-Llama,_peru,_machu_picchu.jpeg', isCorrect: false },
+                { answerText: 'Chimpansee', value: '225 dagen', photo: '220px-Lightmatter_chimp.jpeg', isCorrect: false }
             ],
         },
         {
             questionText: 'Welke van de onderstaande vogels heeft de grootste spanwijdte?',
             answerOptions: [
-                { answerText: 'witte pelikaan', value: '271,5 mm', isCorrect: false },
-                { answerText: 'Zuidelijke gele vleermuis', value: '345 mm', isCorrect: false },
-                { answerText: 'Ringsnavelmeeuw', value: '1150 mm', scientificName: 'Larus delawarensis', id: '1', isCorrect: true },
+                { answerText: 'witte pelikaan', photo: 'American_White_Pelican.jpeg', value: '271,5 mm', isCorrect: false },
+                { answerText: 'Zuidelijke gele vleermuis', photo: '220px-Naturalis_Biodiversity_Center_-_RMNH.MAM.17371.b_ven_-_lasiurus_Ega_Ega_-_skin.jpeg', value: '345 mm', isCorrect: false },
+                { answerText: 'Ringsnavelmeeuw', value: '1150 mm', photo: 'Ring-billed_gull_in_Red_Hook_(42799).jpeg', scientificName: 'Larus delawarensis', id: '1', isCorrect: true },
             ],
         },
         {
             questionText: 'Welke van de onderstaande dieren heeft de kortste draagtijd?',
             answerOptions: [
-                { answerText: 'Kaspische rob', value: '11 maanden', isCorrect: false },
-                { answerText: 'Antilopegrondeekhoorn', value: '32.5 dagen', isCorrect: false },
-                { answerText: 'Bosspitsmuis', scientificName: 'Sorex araneus', value: '20 dagen', id: '2', isCorrect: true }
+                { answerText: 'Kaspische rob', value: '11 maanden', photo: '220px-Каспийский_тюлень.jpeg', isCorrect: false },
+                { answerText: 'Antilopegrondeekhoorn', value: '32.5 dagen', photo: '220px-White_Tailed_Squirrel.jpeg', isCorrect: false },
+                { answerText: 'Bosspitsmuis', scientificName: 'Sorex araneus', photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Sorex_araneus2.JPG/220px-Sorex_araneus2.JPG', value: '20 dagen', id: '2', isCorrect: true }
             ],
         },
         {
             questionText: 'Welk van de onderstaande dieren heeft de meeste jongen per zwangerschap?',
             answerOptions: [
-                { answerText: '	karetschildpad', value: '128', isCorrect: false },
-                { answerText: 'Gewone octopus', scientificName: 'Octopus vulgaris', value: '80000', id: '3', isCorrect: true },
-                { answerText: 'Kortsnuitzeepaardje', value: '865', isCorrect: false },
+                { answerText: '	karetschildpad', value: '128', photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Loggerhead_sea_turtle.jpg/220px-Loggerhead_sea_turtle.jpg', isCorrect: false },
+                { answerText: 'Gewone octopus', scientificName: 'Octopus vulgaris', photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Octopus_vulgaris2.jpg/220px-Octopus_vulgaris2.jpg', value: '80000', id: '3', isCorrect: true },
+                { answerText: 'Kortsnuitzeepaardje', value: '865', photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Hippocampus_hippocampus_%28on_Ascophyllum_nodosum%29.jpg/220px-Hippocampus_hippocampus_%28on_Ascophyllum_nodosum%29.jpg', isCorrect: false },
             ],
         },
         {
             questionText: 'Welk van de onderstaande organismen heeft de langst gemeten levensduur?',
             answerOptions: [
-                { answerText: 'Zomereik', scientificName: 'Quercus robur', value: '930 jaar', id: '4', isCorrect: true },
-                { answerText: '	Witte spar', value: '668 jaar', isCorrect: false },
-                { answerText: 'Moerasden', value: '458 jaar', isCorrect: false }
+                { answerText: 'Zomereik', scientificName: 'Quercus robur', value: '930 jaar', photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Paprastasis_azuolas.JPG/220px-Paprastasis_azuolas.JPG', id: '4', isCorrect: true },
+                { answerText: '	Witte spar', value: '668 jaar', photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Picea_glauca_Fairbanks.jpg/220px-Picea_glauca_Fairbanks.jpg', isCorrect: false },
+                { answerText: 'Moerasden', value: '458 jaar', photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Longleaf_8246.jpg/220px-Longleaf_8246.jpg', isCorrect: false }
             ],
         },
     ]
@@ -125,7 +124,7 @@ export default function Home() {
                                     <button className={`answer-button ${
                                         clicked && answerOption.isCorrect ? 'correct' : null
                                         }`}
-                                        onClick={() => handleCorrectAnswer(answerOption.isCorrect)}><img src="placeholder.jpeg"></img></button>
+                                        onClick={() => handleCorrectAnswer(answerOption.isCorrect)}><img className='answers-img' src={answerOption.photo}></img></button>
                                     <h3 className={`answer-h3 ${
                                         clicked && answerOption.isCorrect ? 'correct-h3' : null
                                         }`}>{answerOption.answerText}</h3>
@@ -142,11 +141,11 @@ export default function Home() {
                     </div>
                 </>
 
-                {/* <Link to='/detail'> */}
+                <Link to='/detail'>
                 {
-                    show ? <button className="btn-verder" onClick={handleNextQuestion}>Verder</button> : null
+                    show ? <button className="btn-verder">Verder</button> : null
                 }
-                {/* </Link> */}
+                </Link>
 
 
             </div>
