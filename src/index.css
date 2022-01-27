@@ -174,12 +174,32 @@ width: 20%;
 margin-top: 110px
 }
 
+.sidebar h4 {
+  margin-left: 40px;
+  font-size: 1.6em;
+}
 .sidebar div {
       background-color: rgba(255, 255, 255, 0.8);
-      width: 220px;
-      height: 140px;
+      width: 200px;
+      height: 130px;
       margin-left: 40px;
       border-radius: 20px;
+      overflow: hidden;
+       margin-top: 30px
+}
+.sidebar img {
+  width: 100%;
+}
+
+.score-section {
+  width: 500px;
+  display: block;
+  margin: 50px auto;
+  margin-top: 0;
+  background-color: #F16323;
+  padding: 10px;
+  border-radius: 15px;
+  text-align: center;
 }
 
 
@@ -247,11 +267,7 @@ margin-top: 110px
 
 }
 
-.score-section {
-  display: flex;
-  font-size: 24px;
-  align-items: center;
-}
+
 button {
   width: 100%;
   border-radius: 20px;

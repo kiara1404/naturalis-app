@@ -1,39 +1,34 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Detail from './components/Detail';
 import Home from './components/Home'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { QuestionProvider } from './components/QuestionContext';
-import LandingsPage from './components/LandingsPage'
+import { CurrentQuestionProvider } from './components/CurrentQuestionContext';
+import LandingsPage from './components/LandingsPage';
+import { ScoreProvider } from './components/ScoreContext'
 
 
 export default function App() {
 
-  useEffect(() => {
-    async function fetchData() {
-      const endpoint = 'data_2.json';
-      const response = await fetch(endpoint);
-      const data = await response.json()
-      console.log(data)
-    }
-    fetchData();
-  }, [])
+
 
 
 
   return (
-    <QuestionProvider>
-      <Router>
-        <div className='app'>
+    <CurrentQuestionProvider>
+      <ScoreProvider>
+        <Router>
+          <div className='app'>
 
-          <Routes>
-            <Route path='/' element={<LandingsPage />} />
-            <Route path='/home' element={<Home />} />
-            <Route path='/detail' element={<Detail />} />
-          </Routes>
+            <Routes>
+              <Route path='/' element={<LandingsPage />} />
+              <Route path='/home' element={<Home />} />
+              <Route path='/detail' element={<Detail />} />
+            </Routes>
 
-        </div>
-      </Router>
-    </QuestionProvider>
+          </div>
+        </Router>
+      </ScoreProvider>
+    </CurrentQuestionProvider>
 
 
   );

@@ -1,56 +1,32 @@
 import React, { useState, useEffect, createContext, useContext } from 'react';
-import { Link } from 'react-router-dom';
-import questions from './Home';
-import { QuestionContext } from './../components/QuestionContext';
+import { Link, useParams } from 'react-router-dom';
+import { CurrentQuestionContext } from './CurrentQuestionContext';
 
 
 
 
 
-export default function Detail(data) {
-    const [currentQuestion, setCurrentQuestion] = useContext(QuestionContext)
+
+
+
+
+export default function Detail() {
+    const { id } = useParams()
+    const [currentQuestion, setCurrentQuestion] = useContext(CurrentQuestionContext)
     const [object, setObject] = useState(null);
-    const url = 'https://api.gbif.org/v1/occurrence/';
-
-    // random volgende vraag > werkt nog niet op de detailpagina > moet ook nog bij einde iets toevoegen + score
-    // const handleNextQuestion = () => {
-    //     // setClicked(false)
-    //     // setShow(false)
-    //     const nextQuestion = currentQuestion * questions.length;
-    //     if (nextQuestion < questions.length) {
-    //         setCurrentQuestion(nextQuestion)
-    //     }
-    // }
-
-    const handleNextQuestion = () => {
-        // setClicked(false)
-        // setShow(false)
-        const nextQuestion = currentQuestion + 1;
-        if (nextQuestion < questions.length) {
-            setCurrentQuestion(nextQuestion)
-        }
-    }
-
-
-
 
     useEffect(() => {
-        // const url = 'https://api.gbif.org/v1/occurrence/'
 
         fetch('data_2.json')
             .then(res => {
                 return res.json()
             })
             .then(data => {
-                setObject(data[0])
+                setObject(data[10000])
             })
     }, [])
 
-    // fetchData(url + object.id).then((d) => {
-    //     setGbifObject(d);
-    // })
 
-    //fetchData('https://api.gbif.org/v1/occurrence/' + object.id)
 
 
     return (
@@ -96,9 +72,9 @@ export default function Detail(data) {
                 <div className="wrapper-detail">
 
                     <div className='info-block'>
-                        {object && <h2>{object.name}</h2>}
+                        <h2>{object && object.name}</h2>
                         <div className='photo-block'>
-                            <img src="placeholder2.png"></img>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/American_bison_k5680-1.jpg/1280px-American_bison_k5680-1.jpg"></img>
                         </div>
 
                         <div className='data'>
@@ -106,7 +82,6 @@ export default function Detail(data) {
                                 <div className='kingdom'>
                                     <p>Kingdom</p>
                                     {object && <p>{object.kingdom}</p>}
-                                    {/* <p> {gbifObject.kingdom} </p> */}
                                 </div>
                                 <div className='class'>
                                     <p>Class</p>
@@ -136,16 +111,17 @@ export default function Detail(data) {
 
                             </>
                         </div>
-                        {/* <a className='btn-primary'>Opslaan</a> */}
                     </div>
 
                 </div>
                 <Link to='/home'>
-                    <button onClick={handleNextQuestion} className='new-question'>Nieuwe vraag</button>
+                    <button className='new-question'>Nieuwe vraag</button>
                 </Link>
                 <div className='sidebar'>
                     <h4>Uit dezelfde orde</h4>
-                    <div></div>
+                    <div><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Nijlpaard.jpg/220px-Nijlpaard.jpg' /></div>
+                    <div><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Caribou.jpg/220px-Caribou.jpg' /></div>
+                    <div><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Two_llamas_going_for_a_swim.jpg/266px-Two_llamas_going_for_a_swim.jpg' /></div>
 
                 </div>
 

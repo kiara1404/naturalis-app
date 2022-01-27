@@ -1,21 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { QuestionContext } from './../components/QuestionContext';
+import { CurrentQuestionContext } from './CurrentQuestionContext';
+import { ScoreContext } from './ScoreContext';
 
 
 
-export default function Home() {
 
-
-    useEffect(() => {
-        const nextQuestion = Math.floor(Math.random() * questions.length);
-        if (nextQuestion < questions.length) {
-            setCurrentQuestion(nextQuestion)
-        }
-    }, [])
-
-
-    const [currentQuestion, setCurrentQuestion] = useContext(QuestionContext)
+export default function Home({ data }) {
     const questions = [
         {
             questionText: 'Welke van de onderstaande dieren heeft de langste draagtijd?',
@@ -58,19 +49,34 @@ export default function Home() {
             ],
         },
     ]
-    // const [currentQuestion, setCurrentQuestion] = useState(0);
+
+    useEffect(() => {
+        const nextQuestion = Math.floor(Math.random() * questions.length);
+        if (nextQuestion < questions.length) {
+            setCurrentQuestion(nextQuestion)
+        }
+    
+    }, [])
+
+
+    const [currentQuestion, setCurrentQuestion] = useContext(CurrentQuestionContext)
     const [show, setShow] = useState(false);
     const [clicked, setClicked] = useState(false)
+
+    const [score, setScore] = useContext(ScoreContext)
 
     const [object, setObject] = useState(null);
 
 
     const handleCorrectAnswer = (isCorrect) => {
+        if(isCorrect)
         {
             setShow(true)
             setClicked(true)
-
+            setScore(score + 1)
         }
+        setShow(true)
+        setClicked(true)
 
 
 
@@ -108,44 +114,56 @@ export default function Home() {
 
             <div className="wrapper">
 
-                <>
-                    <div className='question-section'>
+                    <div className='score-section'>Je hebt {score} van de {questions.length} vragen goed beantwoord</div>
 
+                        <>
 
+                            <div className='question-section'>
+                                <div className='question-text'>{questions[currentQuestion].questionText}</div>
+                            </div>
+                            <div className='answer-section'>
 
-                        <div className='question-text'>{questions[currentQuestion].questionText}</div>
-                    </div>
-                    <div className='answer-section'>
+                                {questions[currentQuestion].answerOptions.map((answerOption) => (
+                                    <>
+                                        <div className="answers">
 
-                        {questions[currentQuestion].answerOptions.map((answerOption) => (
-                            <>
-                                <div className="answers">
+                                            <button className={`answer-button ${
+                                                clicked && answerOption.isCorrect ? 'correct' : null
+                                                }`}
+                                                onClick={() => handleCorrectAnswer(answerOption.isCorrect)}><img className='answers-img' src={answerOption.photo}></img></button>
+                                            <h3 className={`answer-h3 ${
+                                                clicked && answerOption.isCorrect ? 'correct-h3' : null
+                                                }`}>{answerOption.answerText}</h3>
 
-                                    <button className={`answer-button ${
-                                        clicked && answerOption.isCorrect ? 'correct' : null
-                                        }`}
-                                        onClick={() => handleCorrectAnswer(answerOption.isCorrect)}><img className='answers-img' src={answerOption.photo}></img></button>
-                                    <h3 className={`answer-h3 ${
-                                        clicked && answerOption.isCorrect ? 'correct-h3' : null
-                                        }`}>{answerOption.answerText}</h3>
+                                            {show ? <p className={`answer-p ${
+                                                clicked && answerOption.isCorrect ? 'correct-p' : null}`}>  {answerOption.value} </p> : null}
 
-                                    {show ? <p className={`answer-p ${
-                                        clicked && answerOption.isCorrect ? 'correct-p' : null}`}>  {answerOption.value} </p> : null}
+                                        </div>
 
+                                    </>
+                                ))}
 
-                                </div>
+                            </div>
 
-                            </>
-                        ))}
-
-                    </div>
-                </>
-
-                <Link to='/detail'>
+                        </>
+                     
+                
                 {
-                    show ? <button className="btn-verder">Verder</button> : null
+                    // <Link to={`/detail/${currentQuestion}`}>
+                    <Link to='/detail'>
+                        {
+                            show ?
+
+                                <button className="btn-verder">Verder</button> : null
+                        }
+                    </Link>
                 }
-                </Link>
+
+
+
+
+
+
 
 
             </div>
