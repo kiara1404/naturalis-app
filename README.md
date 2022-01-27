@@ -12,7 +12,7 @@ Ons concept is gebaseerd op verschillende property values van wikidata.org . De 
 Wij hebben gekozen om te beginnen met een vragen in de vorm van een quiz. Op basis van de antwoorden van de quiz kom je meer te weten over verschillende objecten. 
 
 ![screen recording as GIF](https://github.com/kiara1404/naturalis-app/blob/master/screen-gif.gif?raw=true)
-
+ [live demo](https://happy-aryabhata-395281.netlify.app/)
 ## Installation
 > Belangrijk om te weten, dit project is gemaakt met React.js
 
